@@ -75,7 +75,6 @@ export default {
 .loading-bar {
 	width: 100%;
 	height: 20px;
-	background-color: #f1f1f1;
 	overflow: hidden;
 	border-radius: 10px;
 	display: flex;
