@@ -23,5 +23,45 @@ export default {
 			bindable: true,
 			defaultValue: 0,
 		},
+		approvedBgColor: {
+			label: {
+				en: 'Approved color',
+			},
+			type: 'Color',
+			defaultValue: '#16067c',
+			bindable: true,
+		},
+		approvedTextColor: {
+			label: {
+				en: 'Approved text color',
+			},
+			type: 'Color',
+			defaultValue: '#fff',
+			bindable: true,
+		},
+		pendingBgColor: {
+			label: {
+				en: 'Pending color',
+			},
+			type: 'Color',
+			defaultValue: '#d8d1ff',
+			bindable: true,
+		},
+		pendingTextColor: {
+			label: {
+				en: 'Pending text color',
+			},
+			type: 'Color',
+			defaultValue: '#002952',
+			bindable: true,
+		},
+		mainBgColor: {
+			label: {
+				en: 'Main background color',
+			},
+			type: 'Color',
+			defaultValue: '#f1f1f1',
+			bindable: true,
+		},
 	},
 };

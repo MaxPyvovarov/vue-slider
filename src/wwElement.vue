@@ -1,14 +1,33 @@
 <template :style="{width: '100%'}">
-	<div class="loading-bar">
-		<div :style="{width: getProgress() + '%'}" class="progress"></div>
+	<div class="loading-bar" :style="{backgroundColor: mainBgColor}">
 		<div
-			:style="{width: getAdditionalProgress() + '%'}"
+			:style="{
+				width: getProgress(this.approvedHours) + '%',
+				backgroundColor: approvedBgColor,
+			}"
+			class="progress"
+		></div>
+		<div
+			:style="{
+				width: getProgress(this.pendingHours) + '%',
+				backgroundColor: pendingBgColor,
+			}"
 			class="additional-progress"
 		></div>
 	</div>
 	<div class="hours">
-		<p class="approved">{{ approvedHours }}</p>
-		<p class="pending">{{ pendingHours }}</p>
+		<p
+			:style="{backgroundColor: approvedBgColor, color: approvedTextColor}"
+			class="approved"
+		>
+			{{ approvedHours }}
+		</p>
+		<p
+			:style="{backgroundColor: pendingBgColor, color: pendingTextColor}"
+			class="pending"
+		>
+			{{ pendingHours }}
+		</p>
 	</div>
 </template>
 
@@ -27,14 +46,26 @@ export default {
 		pendingHours() {
 			return this.content.pendingHours;
 		},
+		approvedBgColor() {
+			return this.content.approvedBgColor;
+		},
+		approvedTextColor() {
+			return this.content.approvedTextColor;
+		},
+		pendingBgColor() {
+			return this.content.pendingBgColor;
+		},
+		pendingTextColor() {
+			return this.content.pendingTextColor;
+		},
+		mainBgColor() {
+			return this.content.mainBgColor;
+		},
 	},
 
 	methods: {
-		getProgress() {
-			return Math.round((this.approvedHours / this.max) * 100);
-		},
-		getAdditionalProgress() {
-			return Math.round((this.pendingHours / this.max) * 100);
+		getProgress(hours) {
+			return Math.round((hours / this.max) * 100);
 		},
 	},
 };
@@ -53,7 +84,6 @@ export default {
 .loading-bar .progress {
 	display: block;
 	height: 100%;
-	background-color: #16067c;
 	transition: width 0.5s ease;
 	border-radius: 10px;
 	flex-shrink: 0;
@@ -61,7 +91,6 @@ export default {
 .loading-bar .additional-progress {
 	display: block;
 	height: 100%;
-	background-color: #d8d1ff;
 	transition: width 0.5s ease, left 0.5s ease;
 	border-radius: 10px;
 }
@@ -72,15 +101,11 @@ export default {
 }
 
 .hours .approved {
-	color: #fff;
-	background-color: #002952;
 	border-radius: 10px;
 	padding: 0 8px;
 }
 
 .hours .pending {
-	color: #002952;
-	background-color: #d8d1ff;
 	border-radius: 10px;
 	padding: 0 8px;
 }
