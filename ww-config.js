@@ -63,5 +63,13 @@ export default {
 			defaultValue: '#f1f1f1',
 			bindable: true,
 		},
+		mainBorderColor: {
+			label: {
+				en: 'Main border color',
+			},
+			type: 'Color',
+			defaultValue: '#c1c1c1',
+			bindable: true,
+		},
 	},
 };

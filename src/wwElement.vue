@@ -1,5 +1,11 @@
 <template :style="{width: '100%'}">
-	<div class="loading-bar" :style="{backgroundColor: mainBgColor}">
+	<div
+		class="loading-bar"
+		:style="{
+			backgroundColor: mainBgColor,
+			border: '1px solid ' + mainBorderColor,
+		}"
+	>
 		<div
 			:style="{
 				width: getProgress(this.approvedHours) + '%',
@@ -61,6 +67,9 @@ export default {
 		mainBgColor() {
 			return this.content.mainBgColor;
 		},
+		mainBorderColor() {
+			return this.content.mainBorderColor;
+		},
 	},
 
 	methods: {
@@ -74,7 +83,7 @@ export default {
 <style lang="scss" scoped>
 .loading-bar {
 	width: 100%;
-	height: 12px;
+	height: 15px;
 	overflow: hidden;
 	border-radius: 10px;
 	display: flex;
