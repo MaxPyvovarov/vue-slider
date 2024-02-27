@@ -74,11 +74,12 @@ export default {
 <style lang="scss" scoped>
 .loading-bar {
 	width: 100%;
-	height: 20px;
+	height: 12px;
 	overflow: hidden;
 	border-radius: 10px;
 	display: flex;
 	margin-bottom: 3px;
+	border: 1px solid #c1c1c1;
 }
 .loading-bar .progress {
 	display: block;
@@ -97,15 +98,16 @@ export default {
 .hours {
 	display: flex;
 	gap: 3px;
+	font-size: 12px;
 }
 
 .hours .approved {
 	border-radius: 10px;
-	padding: 0 8px;
+	padding: 0 4px;
 }
 
 .hours .pending {
 	border-radius: 10px;
-	padding: 0 8px;
+	padding: 0 4px;
 }
 </style>
