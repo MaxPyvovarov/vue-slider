@@ -23,6 +23,12 @@ export default {
 			bindable: true,
 			defaultValue: 0,
 		},
+		overtimeHours: {
+			label: {en: 'Overtime hours'},
+			type: 'Number',
+			bindable: true,
+			defaultValue: 0,
+		},
 		approvedBgColor: {
 			label: {
 				en: 'Approved color',
@@ -53,6 +59,22 @@ export default {
 			},
 			type: 'Color',
 			defaultValue: '#002952',
+			bindable: true,
+		},
+		overtimeBgColor: {
+			label: {
+				en: 'Overtime color',
+			},
+			type: 'Color',
+			defaultValue: '#690303',
+			bindable: true,
+		},
+		overtimeTextColor: {
+			label: {
+				en: 'Overtime text color',
+			},
+			type: 'Color',
+			defaultValue: '#fff',
 			bindable: true,
 		},
 		mainBgColor: {

@@ -22,17 +22,29 @@
 		></div>
 	</div>
 	<div class="hours">
+		<div class="left">
+			<p
+				:style="{backgroundColor: approvedBgColor, color: approvedTextColor}"
+				class="approved"
+			>
+				{{ approvedHours }}
+			</p>
+			<p
+				:style="{backgroundColor: pendingBgColor, color: pendingTextColor}"
+				class="pending"
+			>
+				{{ pendingHours }}
+			</p>
+		</div>
 		<p
-			:style="{backgroundColor: approvedBgColor, color: approvedTextColor}"
-			class="approved"
+			:style="{
+				backgroundColor: overtimeBgColor,
+				color: overtimeTextColor,
+			}"
+			v-if="overtimeHours > 0"
+			class="overtime"
 		>
-			{{ approvedHours }}
-		</p>
-		<p
-			:style="{backgroundColor: pendingBgColor, color: pendingTextColor}"
-			class="pending"
-		>
-			{{ pendingHours }}
+			{{ overtimeHours + 'h overtime' }}
 		</p>
 	</div>
 </template>
@@ -63,6 +75,15 @@ export default {
 		},
 		pendingTextColor() {
 			return this.content.pendingTextColor;
+		},
+		overtimeHours() {
+			return this.content.overtimeHours;
+		},
+		overtimeBgColor() {
+			return this.content.overtimeBgColor;
+		},
+		overtimeTextColor() {
+			return this.content.overtimeTextColor;
 		},
 		mainBgColor() {
 			return this.content.mainBgColor;
@@ -106,16 +127,20 @@ export default {
 
 .hours {
 	display: flex;
-	gap: 3px;
+	gap: 5px;
+	justify-content: space-between;
 	font-size: 12px;
+	align-items: center;
 }
 
-.hours .approved {
-	border-radius: 10px;
-	padding: 0 4px;
+.left {
+	display: flex;
+	gap: 3px;
 }
 
-.hours .pending {
+.approved,
+.pending,
+.overtime {
 	border-radius: 10px;
 	padding: 0 4px;
 }
