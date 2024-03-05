@@ -46,6 +46,16 @@
 		>
 			{{ overtimeHours + 'h overtime' }}
 		</p>
+		<p
+			:style="{
+				backgroundColor: overtimeBgColor,
+				color: overtimeTextColor,
+			}"
+			v-if="overtimeHours === -1"
+			class="overtime"
+		>
+			Overtime
+		</p>
 	</div>
 </template>
 
